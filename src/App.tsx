@@ -308,11 +308,17 @@ export default function App() {
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   const aboutRef = React.useRef(null);
+  const servicesRef = React.useRef(null);
   const { scrollYProgress: aboutScroll } = useScroll({
     target: aboutRef,
     offset: ["start end", "end start"]
   });
+  const { scrollYProgress: servicesScroll } = useScroll({
+    target: servicesRef,
+    offset: ["start end", "end start"]
+  });
   const aboutImageY = useTransform(aboutScroll, [0, 1], [0, 80]);
+  const servicesBgY = useTransform(servicesScroll, [0, 1], [-100, 100]);
 
   const services: ServiceCategory[] = [
     {
@@ -464,11 +470,22 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-brand-nude/20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="services" ref={servicesRef} className="relative py-24 overflow-hidden">
+        <motion.div 
+          style={{ y: servicesBgY }}
+          className="absolute inset-0 z-0"
+        >
+          <img 
+            src="https://i.ibb.co/DHjdhwYR/fondo-2.png" 
+            alt="Salon Background" 
+            className="w-full h-full object-cover brightness-[0.4]"
+            referrerPolicy="no-referrer"
+          />
+        </motion.div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-brand-gold font-bold tracking-[0.3em] uppercase text-sm">Nuestro Catálogo</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4">Servicios de Excelencia</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mt-4 text-white">Servicios de Excelencia</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -544,20 +561,20 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { 
-                url: 'https://i.ibb.co/8DhNp87s/images.jpg', 
+                url: 'https://i.ibb.co/rK42tYV3/images-4-old.png', 
                 title: 'Estilismo Profesional',
                 gallery: [
-                  'https://i.ibb.co/8DhNp87s/images.jpg',
+                  'https://i.ibb.co/rK42tYV3/images-4-old.png',
                   'https://i.ibb.co/Q7KghYBW/images-1.jpg',
                   'https://i.ibb.co/Z7z8K14/images-2.jpg',
                   'https://i.ibb.co/mFhXNMSH/con-texto.jpg'
                 ]
               },
               { 
-                url: 'https://i.ibb.co/DfftLT42/images-1.jpg', 
+                url: 'https://i.ibb.co/QFDvgwKV/image-1.png', 
                 title: 'Maquillaje de Gala',
                 gallery: [
-                  'https://i.ibb.co/DfftLT42/images-1.jpg',
+                  'https://i.ibb.co/QFDvgwKV/image-1.png',
                   'https://i.ibb.co/Xkf9rsm7/images.jpg',
                   'https://i.ibb.co/sJ2TQdTV/images-4.jpg',
                   'https://i.ibb.co/5xGjGmHd/images-2.jpg'
@@ -573,19 +590,19 @@ export default function App() {
                 ]
               },
               { 
-                url: 'https://i.ibb.co/1YNjV6K5/COLOR11.png', 
+                url: 'https://i.ibb.co/PGDKkfxK/COLOR-0.png', 
                 title: 'Colorimetría Avanzada',
                 gallery: [
-                  'https://i.ibb.co/1YNjV6K5/COLOR11.png',
+                  'https://i.ibb.co/PGDKkfxK/COLOR-0.png',
                   'https://i.ibb.co/ZRKrM1nn/color2.jpg',
                   'https://i.ibb.co/rG1GP09d/color4.jpg'
                 ]
               },
               { 
-                url: 'https://i.ibb.co/zVJjnxfM/images-2.jpg', 
+                url: 'https://i.ibb.co/nsZYhpnC/IMAGES-2-NOVIA.png', 
                 title: 'Peinados de Novia',
                 gallery: [
-                  'https://i.ibb.co/zVJjnxfM/images-2.jpg',
+                  'https://i.ibb.co/nsZYhpnC/IMAGES-2-NOVIA.png',
                   'https://i.ibb.co/fYrZQ0LW/images-3.jpg',
                   'https://i.ibb.co/2YphMRFb/images-1.jpg',
                   'https://i.ibb.co/LXZpQ6hj/images.jpg'
