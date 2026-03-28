@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-nude: #f5ebe0;
+  --color-brand-gold: #d4af37;
+  --color-brand-blue: #e0f2fe;
+  --color-brand-sand: #e3d5ca;
+  
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-800 font-sans;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+.gold-gradient {
+  background: linear-gradient(45deg, #d4af37, #f1d592, #d4af37);
+}
+
+.nude-bg {
+  background-color: var(--color-brand-nude);
+}
+
+.blue-accent {
+  background-color: var(--color-brand-blue);
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-gold/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-gold;
+}
