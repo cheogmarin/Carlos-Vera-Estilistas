@@ -28,8 +28,8 @@ import {
   ChevronLeft
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
-import heroImage from './de frente peinando.png';
-import aboutImage from './W actriz.jpeg';
+const heroImage = 'https://i.ibb.co/pj5LHWc5/de-frente-peinando.png';
+const aboutImage = 'https://i.ibb.co/sJPWyyXB/W-actriz.jpg';
 
 // --- Types ---
 type ServiceCategory = {
